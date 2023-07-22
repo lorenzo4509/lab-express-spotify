@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Artist Search</title>
+</head>
+<body>
+    <h1>Welcome to Spotify Artist Search</h1>
+
+    {{#if showSearchForm}}
+        <form action="/artist-search" method="GET">
+            <label for="artistName">Enter an artist name:</label>
+            <input type="text" id="artistName" name="artistName" required>
+            <button type="submit">Search</button>
+        </form>
+    {{/if}}
+
+    {{#if showResults}}
+        <h2>Artist Search Results</h2>
+        {{#if artists.length}}
+            <ul>
+                {{#each artists}}
+                    <li>{{name}}</li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>No artists found.</p>
+        {{/if}}
+    {{/if}}
+
+</body>
+</html>
+

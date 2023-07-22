@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artist Search Results</title>
+</head>
+<body>
+    <h1>Artist Search Results</h1>
+    {{#if artists.length}}
+        <ul>
+            {{#each artists}}
+                <li>
+                    {{#if images.length}}
+                        <img src="{{ images.[0].url }}" alt="Artist Image">
+                    {{else}}
+                        <img src="https://via.placeholder.com/150" alt="Artist Image Placeholder">
+                    {{/if}}
+                    <h3>{{ name }}</h3>
+                    <a href="/albums/{{ id }}">Show Albums</a>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No artists found.</p>
+    {{/if}}
+</body>
+</html>
